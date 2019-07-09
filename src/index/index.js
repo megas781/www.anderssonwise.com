@@ -1,4 +1,5 @@
 import './index.css';
+import './slider.js'
 
 let onscroll = function () {
     let heroHeight = parseInt(getComputedStyle(document.querySelector('.hero')).height);

@@ -1,14 +1,28 @@
+:root {
+
+    --heroZ: 90;
+    --sliderZ: 100;
+    --sliderLargerContainerZ: 105;
+    --slideImageZ: 120;
+    --sliderBeforeZ: 125;
+    --slideLinkZ: auto;
+    --slideTextZ: 150;
+    --slideDotsZ: 150;
+}
 .hero {
     position: relative;
     height: 90vh;
     overflow: hidden;
-    z-index: calc(100 - 10);
+    z-index: var(--heroZ);
 }
-
 
 .slider {
     background-color: var(--gray);
     overflow: hidden;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*justify-content: center;*/
+    /*align-items: stretch;*/
 }
 .hero__slider {
     z-index: var(--sliderZ);
@@ -22,16 +36,20 @@
     content: '';
     display: block;
     position: absolute;
+    pointer-events: none;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.25));
-    z-index: calc(100 + 10);
+    z-index: var(--sliderBeforeZ);
 }
 
-.slider * {
-    position: relative;
+.slider__larger-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 
@@ -43,26 +61,31 @@
     width: 100%;
 }
 .slide {
-
-}
-.slider__slide {
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
-
-    /*z-index: var(--sliderZ);*/
+}
+.slide * {
+    position: relative;
+}
+.slider__slide {
 
     display: flex;
     flex-direction: column;
     align-items: stretch;
     justify-content: center;
 }
-.slider__slide:not(:first-child) {
+.slide__link {
+    z-index: var(--slideLinkZ);
+}
+.slider__slide {
     display: none;
 }
-
+.slider__slide:nth-child(1) {
+    display: flex;
+}
 .slide__image {
     position: absolute;
     top: 0;
@@ -72,14 +95,13 @@
 
     background-size: cover;
     background-position: center;
-    /*background-attachment: fixed;*/
     background-repeat: no-repeat;
-    /*overflow: hidden;*/
 
+    z-index: var(--slideImageZ);
 }
 
 .slide__text-container {
-    z-index: calc(100 + 50);
+    z-index: var(--slideTextZ);
     max-width: 50vw;
 }
 .slide__title {
@@ -91,31 +113,27 @@
 }
 
 .slider__dots {
-    height: 100%;
 
-    z-index: calc(100 + 70);
     align-self: flex-end;
-    /*position: fixed;*/
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
+    z-index: var(--slideDotsZ);
 
 }
-
 .dot {
     --a: 10px;
     height: var(--a);
     width: var(--a);
-
     cursor: pointer;
 
-    margin: 4px 0;
+    margin: 10px;
 
     background-color: transparent;
     border: 1px solid white;
     border-radius: var(--a);
-    z-index: calc(100 + 20);
+
 }
 .dot.active {
     background-color: white;
