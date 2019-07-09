@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Anderssonwise</title>
+
+    <link rel="stylesheet" href="master/master.css">
+    <link rel="stylesheet" href="index/index.css">
+
+    <script src="vendors.js"></script>
+
+</head>
+<body>
+
+<header class="header">
+    <div class="container larger header__container">
+        <a class="logo header__logo" href="">
+            <img class="logo__image" src="assets/logo.svg" alt="Anderssonwise">
+        </a>
+        <nav class="nav header__nav">
+            <a href="" class="nav__link">Project</a>
+            <a href="" class="nav__link">Studio</a>
+            <a href="" class="nav__link">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<div class="section hero">
+
+    <div class="slider hero__slider">
+
+        <div class="slider__slide-container">
+
+            <a class="slide slider__slide" href="">
+
+                <div class="slide__image" style="background-image: url('assets/slide1.jpg')"></div>
+<!--                Не объединяю cintainer и slide__text-container, потому что вдруг помимо двух строчек текста еще что-то захочу вставить -->
+                <div class="container">
+                    <div class="slide__text-container">
+                        <h1 class="slide__title">Pease Road Residence</h1>
+                        <div class="slide__subtitle">AUSTIN / TX</div>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+
+        <div class="container larger slider__dots">
+
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+
+        </div>
+
+    </div>
+
+
+    <div class="arrow-down"></div>
+
+</div>
+
+
+<div class="section intro">
+    <div class="container intro__container">
+        <div class="intro__content">
+            <h2 class="intro__title">About Us</h2>
+            <div class="intro__text-body">
+                <p class="intro__paragraph">Founded in 2001, Andersson / Wise is focused on a collaborative approach to
+                    design that leads to a built solution attuned to its purpose, as well as the broader issues of image
+                    and context. Our design method begins by working closely with our client to understand the written
+                    and unwritten program and the complexities of the site.</p>
+                <div class="intro__info">
+                    <p class="intro__address">
+                        807 Brazos Street <br>
+                        Suite 800 <br>
+                        Austin, TX 78701
+                    </p>
+                    <p class="intro__contact">
+                        <a href="">T 512.476.5780</a><br>
+                        T 512.476.0858 <br>
+                        <a href="mailto:info@anderssonwise.com">info@anderssonwise.com</a>
+                    </p>
+                </div>
+            </div>
+
+            <a class="button cta-button cta-button_sliding intro__cta-button" href="">
+                Our Studio
+                <svg class="cta-button_sliding__arrow-right" width="98px" stroke="white" fill="none" height="50px"
+                     viewBox="0 0 98 50" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                     xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <polyline id="Stroke-1-Copy-2" stroke-width="3"
+                              transform="translate(84.018956, 24.993891) rotate(-90.000000) translate(-84.018956, -24.993891) "
+                              points="60.9979786 13.5900657 83.9478472 36.5399343 107.039934 13.4478472"></polyline>
+                    <path d="M95.565,25.25 L0.124896904,25.25" id="Path" stroke-width="3"></path>
+                </svg>
+            </a>
+
+            <img src="./assets/intro-image.jpg" class="intro__back-image" alt="">
+        </div>
+
+
+    </div>
+</div>
+
+
+<script src="master/master.js"></script>
+<script src="index/index.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+:root {
+
+    /* z-indexes */
+    --headerZ: 1000;
+    --sliderZ: 100;
+
+    --duration: 0.3s;
+    --opacityDuration: 0.35s;
+
+    /* colors */
+    --gray: #585856;
+    --darkGray: #262726;
+}
+body {
+    margin: 0;
+    font-family: "Montserrat Light", sans-serif;
+    color: white;
+    background-color: var(--darkGray);
+}
+img {
+    max-width: 100%;
+    /*display: block;*/
+}
+
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    text-transform: uppercase;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+}
+a::before {
+    display: block;
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: transparent;
+    transition-duration: var(--duration);
+}
+a:hover::before {
+    background-color: white;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+.container.larger {
+    max-width: calc(1100px + 54px);
+}
+
+.button {
+    text-transform: uppercase;
+}
+
+.cta-button {
+
+}
+.cta-button_sliding {
+    font-size: 13px;
+    position: relative;
+    border: 1px solid white;
+    transition: color var(--duration);
+    padding: 16px;
+    padding-right: 72px;
+}
+.cta-button_sliding::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background-color: white;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    z-index: -10;
+
+    transition: width 0.4s;
+}
+.cta-button_sliding__arrow-right {
+
+    display: block;
+    position: absolute;
+    z-index: -10;
+
+    right: 16px;
+    top: calc(50% - 10px);
+    /*bottom: 0;*/
+    height: 20px;
+    width: 30px;
+    transition-duration: var(--duration);
+    transition-property: stroke, right;
+}
+.cta-button_sliding:hover .cta-button_sliding__arrow-right {
+    stroke: var(--darkGray);
+    right: 10px;
+
+}
+
+.cta-button_sliding:hover {
+    color: var(--darkGray);
+}
+.cta-button_sliding:hover::before {
+    width: 100%;
+}
+

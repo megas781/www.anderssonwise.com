@@ -1,0 +1,4 @@
+example
+public/**/*.*
+!public/**/*.html
+!public/assets/**/*.*
