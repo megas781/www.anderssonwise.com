@@ -1,1 +1,1 @@
-import TweenLite from 'gsap/TweenLite';
+require('gsap');
