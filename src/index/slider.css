@@ -68,7 +68,7 @@
     bottom: 0;
     right: 0;
 
-    background-image: linear-gradient(to bottom, rgba(38, 39, 38, 0.6), rgba(38, 39, 38, 0.3));
+    background-image: linear-gradient(to bottom, rgba(38, 39, 38, 0.5), rgba(38, 39, 38, 0.2));
 }
 
 .slide.current {
@@ -87,6 +87,7 @@
     height: 100%;
 }
 .slide__text-container {
+    position: relative;
     max-width: 400px;
 }
 .slide__title {

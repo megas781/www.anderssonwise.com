@@ -47,12 +47,11 @@ function startSlidingMechanism() {
         let slideSubtitle = slide.querySelector('.slide__subtitle');
 
         let recursiveAnimation = new TimelineLite();
-        recursiveAnimation.delay = 1;
 
         recursiveAnimation
-            .fromTo(slideTitle, 1, {opacity: 0, y: 50}, {opacity: 1, y: 0})
+            .fromTo(slideTitle, 1, {opacity: 0, y: 50}, {opacity: 1, y: 0, delay: 1})
             .fromTo(slideSubtitle, 1, {opacity: 0, y: 50}, {opacity: 1, y: 0})
-            .fromTo(slideImage, 7, {scale: 1}, {scale: 1.1, ease: Power0.easeNone}, 0)
+            .fromTo(slideImage, 7.5, {scale: 1}, {scale: 1.1, ease: Power0.easeNone}, 0)
 
             .addLabel('hide', '-=1')
             .to(slideTextContainer, 1, {y: -50}, 'hide')
@@ -87,7 +86,45 @@ function startSlidingMechanism() {
 
     }
 
-    animateSlide(currentSlide);
+    //Здесь мы знаем, что у нас первая загрузка. Анимация чуть-чуть отличается
+    let firstAnimation = new TimelineLite();
+
+    firstAnimation
+        .fromTo(currentSlide.querySelector('.slide__title'), 1, {opacity: 0, y: 50}, {opacity: 1, y: 0, delay: 1})
+        .fromTo(currentSlide.querySelector('.slide__subtitle'), 1, {opacity: 0, y: 50}, {opacity: 1, y: 0}, '-=0.5')
+        .fromTo(currentSlide.querySelector('.slide__image'), 2, {opacity: 0}, {opacity: 1})
+        .fromTo(currentSlide.querySelector('.slide__image'), 7.5, {scale: 1}, {scale: 1.1, ease: Power0.easeNone}, '-=2')
+
+        .addLabel('hide', '-=1')
+        .to(currentSlide.querySelector('.slide__text-container'), 1, {y: -50}, 'hide')
+        .to(currentSlide, 1, {
+            opacity: 0,
+            onStart() {
+
+                //До того, как индекс обновился, деактивируем текущую точку
+                dots[currentSlideIndex].classList.remove('active');
+
+                //После того, как индекс обновился, активируем новую точку
+                dots[(currentSlideIndex + 1) % slides.length].classList.add('active');
+
+                console.log(`вызов анимации слайда по индексу ${(currentSlideIndex + 1) % slides.length}`);
+                animateSlide(slides[(currentSlideIndex + 1) % slides.length]);
+            },
+            onComplete() {
+
+                slides[currentSlideIndex].classList.remove('current');
+
+                // Делаем смещение индексов
+                currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+                nextSlideIndex = (nextSlideIndex + 1) % slides.length;
+
+                slides[currentSlideIndex].classList.remove('next');
+                slides[currentSlideIndex].classList.add('current');
+                slides[nextSlideIndex].classList.add('next');
+            }
+        }, 'hide')
+        .set(currentSlide.querySelector('.slide__text-container'), {y: 0})
+        .set(currentSlide, {opacity: 1})
 }
 
 startSlidingMechanism();
