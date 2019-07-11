@@ -19,7 +19,7 @@ let onscroll = function () {
 
     // //Замедление скроллинга текста (параллакс)
     document.querySelectorAll('.slide__text-container').forEach(function (container) {
-        container.style.transform = `translateY(${-scroll/2}px)`;
+        container.style.top = `${-scroll/2}px`;
     })
     // document.querySelector('.slide__text-container').style.bottom = `${scroll/2}px`;
 };
