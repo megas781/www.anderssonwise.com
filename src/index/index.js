@@ -1,6 +1,6 @@
 import './index.css';
-import './slider.js'
 
+//События при скроллинге
 let onscroll = function () {
     let heroHeight = parseInt(getComputedStyle(document.querySelector('.hero')).height);
     let scroll = window.scrollY;
@@ -17,12 +17,22 @@ let onscroll = function () {
         document.querySelector('.header').classList.remove('hidden');
     }
 
+
     // //Замедление скроллинга текста (параллакс)
     document.querySelectorAll('.slide__text-container').forEach(function (container) {
         container.style.top = `${-scroll/2}px`;
     })
-    // document.querySelector('.slide__text-container').style.bottom = `${scroll/2}px`;
 };
 onscroll();
-
 window.onscroll = onscroll;
+
+
+
+//Анимации для intro
+
+//Объявляем единый scrollController
+export let scrollController = new ScrollMagic.Controller();
+
+//Импорт остальных библиотек после основного, общеуниверсального кода
+require("./slider.js");
+require("./intro.js");

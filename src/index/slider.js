@@ -65,7 +65,7 @@ function startSlidingMechanism() {
                     //После того, как индекс обновился, активируем новую точку
                     dots[(currentSlideIndex + 1) % slides.length].classList.add('active');
 
-                    console.log(`вызов анимации слайда по индексу ${(currentSlideIndex + 1) % slides.length}`);
+                    // console.log(`вызов анимации слайда по индексу ${(currentSlideIndex + 1) % slides.length}`);
                     animateSlide(slides[(currentSlideIndex + 1) % slides.length]);
                 },
                 onComplete() {
@@ -107,7 +107,7 @@ function startSlidingMechanism() {
                 //После того, как индекс обновился, активируем новую точку
                 dots[(currentSlideIndex + 1) % slides.length].classList.add('active');
 
-                console.log(`вызов анимации слайда по индексу ${(currentSlideIndex + 1) % slides.length}`);
+                // console.log(`вызов анимации слайда по индексу ${(currentSlideIndex + 1) % slides.length}`);
                 animateSlide(slides[(currentSlideIndex + 1) % slides.length]);
             },
             onComplete() {
@@ -124,7 +124,7 @@ function startSlidingMechanism() {
             }
         }, 'hide')
         .set(currentSlide.querySelector('.slide__text-container'), {y: 0})
-        .set(currentSlide, {opacity: 1})
+        .set(currentSlide, {opacity: 1});
 }
 
 startSlidingMechanism();
